@@ -1,0 +1,58 @@
+
+<ion-content [fullscreen]="true">
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+       <ion-back-button defaultHref="/auth"></ion-back-button>
+      </ion-buttons>
+    </ion-toolbar>
+    <ion-row>
+      <ion-label color="light">
+        Welcome
+        <p>Back</p>
+      </ion-label>
+    </ion-row>
+  </ion-header>
+
+  <ion-list class="ion-padding-horizontal ion-margin-horizontal">
+    <form [formGroup]="signForm">
+
+      <div class="ion-margin-bottom">
+        <ion-item>
+          <ion-input formControlName="email" type="text" placeholder="Email"></ion-input> 
+       </ion-item>
+       <ion-text class="error" *ngIf="!signForm.get('email')?.valid && signForm.get('email')?.touched">
+        <ion-text color="danger" *ngIf="signForm.get('email')?.hasError('required')">* Please enter your Email Address</ion-text>
+        <ion-text color="danger" *ngIf="signForm.get('email')?.hasError('required') && signForm.get('email')?.hasError('email')">* Please enter a proper Email Address</ion-text>
+      </ion-text>
+      </div>
+     
+        <div class="ion-margin-bottom">
+          <ion-item>
+            <ion-input formControlName="password" type="password" placeholder="Password"></ion-input> 
+         </ion-item> 
+         <ion-text class="error" *ngIf="!signForm.get('password')?.valid && signForm.get('password')?.touched">
+          <ion-text color="danger" *ngIf="signForm.get('password')?.hasError('required')">* Please enter your password</ion-text>
+          <ion-text color="danger" *ngIf="signForm.get('password')?.hasError('required') && signForm.get('password')?.hasError('minlength')">* Please must be of atleast 8 characters</ion-text>
+        </ion-text>
+        </div>
+
+        <ion-item lines="none" class="Sign">
+          <ion-label>
+           Sign in
+          </ion-label>
+
+          <ion-fab-button color="light" (click)="submit()">
+           <ion-icon name="arrow-forward-outline" color="dark"></ion-icon>
+          </ion-fab-button>
+
+        </ion-item>  
+    </form>
+
+    <ion-item lines="none" class="featuredItems">
+      <ion-text slot="start" routerLink="/auth/sign-up"> Sign up </ion-text>
+      <ion-text slot="end"> Forget Password ?</ion-text>
+    </ion-item>
+
+  </ion-list>
+</ion-content>

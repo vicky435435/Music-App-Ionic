@@ -1,0 +1,48 @@
+ion-content{
+    --background: var(--ion-color-primary);
+  ion-header{
+    ion-toolbar{
+        --background: transparent;
+    }
+    ion-row{
+        margin: 5vh;
+        ion-label, p{
+            font-weight: bold;
+            font-size: 1.8rem;
+        }
+    }
+  }
+
+  ion-list{
+    transform: translateY(20vh);
+    background: transparent;
+    ion-item{
+        --background: transparent;
+        ion-label{
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+        ion-input{
+            font-size: 0.9em;
+        }
+    }
+
+    .Sign{
+        margin: 5vh 0;
+    }
+
+    .error{
+        font-size: 0.75em;
+    }
+    .featuredItems{
+        margin-top: 10vh;
+        // font-weight: bold;
+        // font-size: 0.9em;
+        ion-text{
+            font-weight: bold;
+            font-size: 0.9em;
+            text-decoration: underline;
+        }
+    }
+  }
+}
